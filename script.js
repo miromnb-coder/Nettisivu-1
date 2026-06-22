@@ -1,3 +1,15 @@
+function loadPixelSpecStyles() {
+  const existing = document.querySelector('link[href="pixel-spec.css"]');
+  if (existing) return;
+
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "pixel-spec.css";
+  document.head.appendChild(link);
+}
+
+loadPixelSpecStyles();
+
 const menuItems = [
   {
     name: "Lumi Latte",
