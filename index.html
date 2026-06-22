@@ -4,46 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kahvila Lumi | Makuja, jotka tekevät päivästäsi paremman</title>
-  <meta name="description" content="Moderni kahvila- ja ravintolasivun demo HTML:llä, CSS:llä ja JavaScriptillä." />
+  <meta name="description" content="Kahvila Lumi on lämmin, moderni kahvila Helsingissä. Tutustu menuun, aukioloaikoihin ja varaa pöytä." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Kahvila Lumi etusivulle">
-      <span class="brand-mark" aria-hidden="true">✣</span>
-      <span>Kahvila Lumi</span>
-    </a>
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Kahvila Lumi etusivulle">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img" focusable="false">
+            <path d="M32 5v54M15 14l34 36M49 14 15 50M8 32h48M20 8l2 12-12-2M44 8l-2 12 12-2M20 56l2-12-12 2M44 56l-2-12 12 2" />
+          </svg>
+        </span>
+        <span>Kahvila Lumi</span>
+      </a>
 
-    <button class="nav-toggle" type="button" aria-label="Avaa valikko" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <nav class="main-nav" aria-label="Päävalikko">
+        <a class="active" href="#top">Etusivu</a>
+        <a href="#menu">Menu</a>
+        <a href="#tarina">Tarina</a>
+        <a href="#galleria">Galleria</a>
+        <a href="#yhteys">Yhteys</a>
+      </nav>
 
-    <nav class="main-nav" aria-label="Päävalikko">
-      <a class="active" href="#top">Etusivu</a>
+      <a class="header-cta" href="#yhteys">
+        <span aria-hidden="true">▣</span>
+        Varaa pöytä
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Avaa valikko" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobiilivalikko">
+      <a href="#top">Etusivu</a>
       <a href="#menu">Menu</a>
       <a href="#tarina">Tarina</a>
       <a href="#galleria">Galleria</a>
       <a href="#yhteys">Yhteys</a>
     </nav>
-
-    <a class="header-cta" href="#yhteys">
-      <span aria-hidden="true">▣</span>
-      Varaa pöytä
-    </a>
   </header>
 
   <main>
-    <section class="hero section-shell">
+    <section class="hero page-shell" aria-labelledby="hero-title">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Pohjoisen lämmin kahvila</p>
-        <h1>Makuja, jotka tekevät päivästäsi paremman</h1>
-        <div class="accent-symbol" aria-hidden="true">✣</div>
-        <p class="hero-text">
+        <h1 id="hero-title">Makuja, jotka tekevät päivästäsi paremman</h1>
+        <span class="accent-symbol" aria-hidden="true">✣</span>
+        <p>
           Kahvila Lumi on paikka, jossa pohjoinen rauha, laadukkaat raaka-aineet
           ja lämmin tunnelma kohtaavat. Tervetuloa nauttimaan hetkestä.
         </p>
@@ -52,89 +65,72 @@
           <a class="btn btn-secondary" href="#yhteys"><span aria-hidden="true">▣</span> Varaa pöytä</a>
         </div>
       </div>
-
-      <div class="hero-visual reveal" aria-label="Latte ja tuore pulla kahvilapöydällä" role="img">
-        <div class="floating-card">
-          <strong>Tänään</strong>
-          <span>Kanelipulla + Lumi Latte</span>
-        </div>
-      </div>
     </section>
 
-    <section class="menu-preview section-shell" id="menu">
+    <section class="menu-preview page-shell" id="menu" aria-labelledby="menu-title">
       <div class="section-heading reveal">
         <div>
-          <p class="eyebrow">Suosituimmat</p>
-          <h2>Asiakkaiden suosikit</h2>
+          <h2 id="menu-title">Suosituimmat</h2>
+          <span class="heading-line" aria-hidden="true"></span>
         </div>
         <a class="text-link" href="#yhteys">Katso koko menu <span aria-hidden="true">→</span></a>
       </div>
       <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
     </section>
 
-    <section class="story-reviews" id="tarina">
-      <div class="story-card reveal">
-        <div class="story-image" aria-label="Lämmin kahvilan sisätila" role="img"></div>
+    <section class="story-reviews page-shell" id="tarina">
+      <span class="anchor" id="galleria"></span>
+      <article class="story-card reveal" aria-labelledby="story-title">
+        <div class="story-image" aria-label="Kahvila Lumin lämmin sisätila" role="img"></div>
         <div class="story-content">
           <p class="eyebrow">Tarinamme</p>
-          <h2>Pohjoisen makuja, sydämellä tehty</h2>
+          <h2 id="story-title">Pohjoisen makuja, sydämellä tehty</h2>
           <p>
-            Kahvila Lumi sai alkunsa rakkaudesta hyviin raaka-aineisiin,
-            käsityöhön ja pohjoisen luonnon rauhaan. Haluamme tarjota paikan,
-            jossa voit hengähtää, nauttia aidosta ruoasta ja hyvästä seurasta.
+            Kahvila Lumi sai alkunsa rakkaudesta hyviin raaka-aineisiin, käsityöhön
+            ja pohjoisen luonnon rauhaan. Haluamme tarjota paikan, jossa voit hengähtää,
+            nauttia aidosta ruoasta ja hyvästä seurasta.
           </p>
-          <a class="btn btn-primary" href="#galleria">Lue lisää tarinastamme</a>
+          <a class="btn btn-primary story-button" href="#yhteys">Lue lisää tarinastamme</a>
         </div>
-      </div>
+      </article>
 
-      <div class="reviews-panel reveal">
-        <div class="section-heading compact">
-          <div>
-            <p class="eyebrow">Arviot</p>
-            <h2>Asiakkaamme sanovat</h2>
-          </div>
+      <section class="reviews-panel reveal" aria-labelledby="reviews-title">
+        <div class="reviews-header">
+          <h2 id="reviews-title">Asiakkaamme sanovat</h2>
+          <span class="heading-line" aria-hidden="true"></span>
         </div>
         <div class="reviews-grid" id="reviewsGrid"></div>
         <div class="review-dots" id="reviewDots" aria-label="Arvioiden sivutus"></div>
-      </div>
+      </section>
     </section>
 
-    <section class="gallery-strip section-shell" id="galleria" aria-label="Kahvilan kuvagalleria">
-      <div class="gallery-card gallery-coffee reveal">
-        <span>Erikoiskahvit</span>
-      </div>
-      <div class="gallery-card gallery-brunch reveal">
-        <span>Brunssi</span>
-      </div>
-      <div class="gallery-card gallery-dessert reveal">
-        <span>Leivonnaiset</span>
-      </div>
-    </section>
-
-    <section class="contact-band" id="yhteys">
+    <section class="contact-band page-shell" id="yhteys" aria-label="Yhteystiedot ja aukioloajat">
       <div class="contact-item reveal">
-        <span class="contact-icon">⌖</span>
+        <span class="contact-icon" aria-hidden="true">⌖</span>
         <div>
           <h3>Sijainti</h3>
           <p>Lumikatu 5, 00100 Helsinki<br />Suomi</p>
         </div>
       </div>
+
       <div class="contact-item reveal">
-        <span class="contact-icon">☎</span>
+        <span class="contact-icon" aria-hidden="true">☎</span>
         <div>
           <h3>Puhelin</h3>
-          <p>+358 40 123 4567</p>
+          <p><a href="tel:+358401234567">+358 40 123 4567</a></p>
         </div>
       </div>
+
       <div class="contact-item reveal">
-        <span class="contact-icon">✉</span>
+        <span class="contact-icon" aria-hidden="true">✉</span>
         <div>
           <h3>Sähköposti</h3>
-          <p>terve@kahvilalumi.fi</p>
+          <p><a href="mailto:terve@kahvilalumi.fi">terve@kahvilalumi.fi</a></p>
         </div>
       </div>
-      <div class="opening-hours reveal">
-        <span class="contact-icon">◷</span>
+
+      <div class="contact-item opening-hours reveal">
+        <span class="contact-icon" aria-hidden="true">◷</span>
         <div>
           <h3>Aukioloajat</h3>
           <dl>
@@ -144,16 +140,21 @@
           </dl>
         </div>
       </div>
-      <div class="contact-photo reveal" aria-label="Kahvila Lumi ulkoa" role="img">
-        <div class="round-sign">Kahvila<br />Lumi</div>
+
+      <div class="contact-photo reveal" aria-label="Kahvila Lumin sisäänkäynti" role="img">
+        <span class="round-sign">Kahvila<br />Lumi</span>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer page-shell">
     <div class="footer-brand">
-      <a class="brand light" href="#top">
-        <span class="brand-mark" aria-hidden="true">✣</span>
+      <a class="brand brand-light" href="#top" aria-label="Kahvila Lumi etusivulle">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img" focusable="false">
+            <path d="M32 5v54M15 14l34 36M49 14 15 50M8 32h48M20 8l2 12-12-2M44 8l-2 12 12-2M20 56l2-12-12 2M44 56l-2-12 12 2" />
+          </svg>
+        </span>
         <span>Kahvila Lumi</span>
       </a>
       <p>Makuja, jotka tekevät päivästäsi paremman.</p>
@@ -161,11 +162,13 @@
 
     <div class="footer-links">
       <h3>Pikavalinnat</h3>
-      <a href="#top">Etusivu</a>
-      <a href="#menu">Menu</a>
-      <a href="#tarina">Tarina</a>
-      <a href="#galleria">Galleria</a>
-      <a href="#yhteys">Yhteys</a>
+      <div>
+        <a href="#top">Etusivu</a>
+        <a href="#menu">Menu</a>
+        <a href="#tarina">Tarina</a>
+        <a href="#galleria">Galleria</a>
+        <a href="#yhteys">Yhteys</a>
+      </div>
     </div>
 
     <div class="socials">
